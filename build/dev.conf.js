@@ -12,17 +12,18 @@ module.exports = merge(baseConf, {
     output: {
         path: path.resolve(__dirname, '../dist'),
         publicPath: '/',
-        filename:'js/[name].js',
-        chunkFilename:'js/[name].js',
-        sourceMapFilename:'[file].map'
+        filename: 'js/[name].js',
+        chunkFilename: 'js/[name].js',
+        sourceMapFilename: '[file].map'
     },
-    plugins:[
+    plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
-            title:'game',
-            filename:'index.html',
-            template:path.resolve(__dirname,'../src/index.html'),
-            chunk:['app']
+            title: 'Game',
+            filename: 'index.html',
+            template: path.resolve(__dirname, '../src/index.ejs'),
+            chunk: ['app'],
+            inject: true,
         })
     ]
 })
